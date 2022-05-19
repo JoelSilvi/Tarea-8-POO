@@ -27,6 +27,8 @@ public class Tarea8 extends JFrame implements ActionListener {
 
 	JLabel labelMarca = new JLabel("Marca");
 	JTextField textMarca = new JTextField(20);
+	
+	JLabel labelRegiones = new JLabel("Regiones");	
 
 	JButton b;
 
@@ -57,6 +59,9 @@ public class Tarea8 extends JFrame implements ActionListener {
 
 		labelMarca.setBounds(300, 310, 100, 40);
 		textMarca.setBounds(370, 310, 400, 40);
+		
+		labelRegiones.setBounds(300, 360, 100, 40);
+		
 
 		panel.add(b);
 
@@ -80,7 +85,20 @@ public class Tarea8 extends JFrame implements ActionListener {
 
 		panel.add(labelMarca);
 		panel.add(textMarca);
-
+		
+		panel.add(labelRegiones);
+		
+		String[] optionsToChoose = {"Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", "Coquimbo", "Valparaíso", 
+        		"Región del Libertador Gral. Bernardo O’Higgins", "Región del Maule", "Región de Ñuble", "Región del Biobío",
+        		"Región de la Araucanía", "Región de Los Ríos", "Región de Los Lagos", "Región Aisén del Gral. Carlos Ibáñez del Campo",
+        		"Región de Magallanes y de la Antártica Chilena", "Región Metropolitana de Santiago"};
+		
+		
+		JComboBox<String> jComboBox = new JComboBox<>(optionsToChoose);		
+		
+		jComboBox.setBounds(370, 360, 400, 40);
+		panel.add(jComboBox);
+		
 		add(panel);
 		b.addActionListener(this);
 
@@ -88,8 +106,9 @@ public class Tarea8 extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 		JFrame tarea8 = new Tarea8();
-		tarea8.setVisible(true);
+		tarea8.setVisible(true);		
 	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
