@@ -1,11 +1,11 @@
 package tarea8;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 import java.awt.event.*;
 
 public class Tarea8 extends JFrame implements ActionListener {
-	JPanel panel = new JPanel();
+	private JPanel panel = new JPanel();
 
 	JLabel labelNombres = new JLabel("Nombre");
 	JTextField textNombre = new JTextField(20);
@@ -22,22 +22,38 @@ public class Tarea8 extends JFrame implements ActionListener {
 	JLabel labelModelo = new JLabel("Modelo");
 	JTextField textModelo = new JTextField(20);
 
-	JLabel labelAnio = new JLabel("Año");
+	JLabel labelAnio = new JLabel("Año Auto");
 	JTextField textAnio = new JTextField(20);
 
 	JLabel labelMarca = new JLabel("Marca");
 	JTextField textMarca = new JTextField(20);
 	
 	JLabel labelRegiones = new JLabel("Regiones");	
+	
+	JLabel labelIngresaFecha = new JLabel("Fecha");
+	
+	JLabel labelDia = new JLabel("Dia");
+	JTextField textDia = new JTextField(20);
+	
+	JLabel labelMes = new JLabel("Mes");
+	
+	JLabel labelAnioHoras = new JLabel("Año");
+	JTextField textAnioHoras = new JTextField(20);
 
+	JLabel labelHora = new JLabel("Hora");
+	JTextField textHora = new JTextField(20);
+	
 	JButton b;
 
 	public Tarea8() {
 		setSize(1000, 1200);
 
 		panel.setLayout(null);
-		b = new JButton("Ingresar Datos");
-		b.setBounds(20, 10, 200, 40);
+		b = new JButton("RESERVAR");
+		b.setBounds(370, 500, 400, 40);
+		b.setBackground(Color.red);
+		b.setForeground(Color.white);
+		b.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
 		labelNombres.setBounds(300, 10, 100, 40);
 		textNombre.setBounds(370, 10, 400, 40);
@@ -62,7 +78,19 @@ public class Tarea8 extends JFrame implements ActionListener {
 		
 		labelRegiones.setBounds(300, 360, 100, 40);
 		
-
+		labelIngresaFecha.setBounds(300, 410, 100, 40);
+		
+		labelDia.setBounds(370, 410, 40, 40);
+		textDia.setBounds(395, 420, 30, 20);
+		
+		labelMes.setBounds(440, 410, 40, 40);
+		
+		labelAnioHoras.setBounds(580, 410, 40, 40);
+		textAnioHoras.setBounds(610, 420, 40, 20);
+		
+		labelHora.setBounds(660, 410, 40, 40);
+		textHora.setBounds(690, 420, 80, 20);
+		
 		panel.add(b);
 
 		panel.add(labelNombres);
@@ -86,18 +114,38 @@ public class Tarea8 extends JFrame implements ActionListener {
 		panel.add(labelMarca);
 		panel.add(textMarca);
 		
-		panel.add(labelRegiones);
+		panel.add(labelIngresaFecha);
+		
+		panel.add(labelDia);
+		panel.add(textDia);
+		
+		panel.add(labelAnioHoras);
+		panel.add(textAnioHoras);
+		
+		panel.add(labelHora);
+		panel.add(textHora);
+		
+		
 		
 		String[] optionsToChoose = {"Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", "Coquimbo", "Valparaíso", 
         		"Región del Libertador Gral. Bernardo O’Higgins", "Región del Maule", "Región de Ñuble", "Región del Biobío",
         		"Región de la Araucanía", "Región de Los Ríos", "Región de Los Lagos", "Región Aisén del Gral. Carlos Ibáñez del Campo",
         		"Región de Magallanes y de la Antártica Chilena", "Región Metropolitana de Santiago"};
 		
+		String[] eligeMes = {"ENERO", "FEBRERO","MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE","DICIEMBRE"};
 		
-		JComboBox<String> jComboBox = new JComboBox<>(optionsToChoose);		
 		
+		JComboBox<String> jComboBox = new JComboBox<>(optionsToChoose);
+		JComboBox<String> jComboMes = new JComboBox<>(eligeMes);
+		
+		
+		panel.add(labelRegiones);
 		jComboBox.setBounds(370, 360, 400, 40);
 		panel.add(jComboBox);
+		
+		panel.add(labelMes);
+		jComboMes.setBounds(470, 420, 100, 20);
+		panel.add(jComboMes);
 		
 		add(panel);
 		b.addActionListener(this);
@@ -112,7 +160,7 @@ public class Tarea8 extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		
 	}
 
 }
