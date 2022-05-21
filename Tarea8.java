@@ -5,6 +5,9 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class Tarea8 extends JFrame implements ActionListener {
+	private JComboBox<String> jComboBox;
+	private JComboBox<String> jComboMes;
+	
 	private JPanel panel = new JPanel();
 
 	JLabel labelNombres = new JLabel("Nombre");
@@ -47,14 +50,15 @@ public class Tarea8 extends JFrame implements ActionListener {
 
 	public Tarea8() {
 		setSize(1000, 1200);
-
 		panel.setLayout(null);
 		b = new JButton("RESERVAR");
 		b.setBounds(370, 500, 400, 40);
 		b.setBackground(Color.red);
 		b.setForeground(Color.white);
 		b.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
+		
+		
+		
 		labelNombres.setBounds(300, 10, 100, 40);
 		textNombre.setBounds(370, 10, 400, 40);
 
@@ -135,8 +139,9 @@ public class Tarea8 extends JFrame implements ActionListener {
 		String[] eligeMes = {"ENERO", "FEBRERO","MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE","DICIEMBRE"};
 		
 		
-		JComboBox<String> jComboBox = new JComboBox<>(optionsToChoose);
-		JComboBox<String> jComboMes = new JComboBox<>(eligeMes);
+		jComboBox = new JComboBox<>(optionsToChoose);
+		jComboMes = new JComboBox<>(eligeMes);
+		
 		
 		
 		panel.add(labelRegiones);
@@ -153,14 +158,29 @@ public class Tarea8 extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		JFrame tarea8 = new Tarea8();
-		tarea8.setVisible(true);		
-	}
+		JFrame tarea8 = new Tarea8();	
+		tarea8.setVisible(true);
+		
+	}	
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		this.dispose();
 		
+		
+		
+		if (e.getSource() == b) {
+			JOptionPane.showMessageDialog(null, ("EL NOMBRE ES:    "+ textNombre.getText() + "\nEL RUT ES:    " + textRUT.getText() + 
+					"\nEL TELEFONO ES:    " + textFono.getText() + "\nLA DIRECCION ES:    " + textDireccion.getText() + "\nEL MODELO ES:    " 
+					+ textModelo.getText() + "\nEL VEHÍCULO ES DEL AÑO:    " + textAnio.getText() + "\nLA MARCA DEL AUTOMOVIL ES:    " 
+					+ textMarca.getText() + "\nLA REGION ES:    " + jComboBox.getSelectedItem() + 
+					"\nPARA EL DÍA:    " + textDia.getText() + " DE " + jComboMes.getSelectedItem() + 
+					"\nAÑO " + textAnio.getText() + " A las    " + textHora.getText()), "RESERVA DE HORAS", WIDTH); 
+			
+			
+			panel.setVisible(true);
+		}
 	}
 
 }
